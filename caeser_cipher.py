@@ -28,11 +28,27 @@ cipher = {
 }
 
 # function to return key for any value
-def get_key(val):
+def get_key_by_value(val):
     for key, value in cipher.items():
          if val == value:
              return key
  
     return "key doesn't exist"
 
-print(get_key("c"))
+def string_iterator(string,shift):
+    string = string.lower()
+    sipher_text = ""
+    for i in string:
+        if i == ' ':
+            sipher_text = sipher_text + ' '
+        elif i == ',' or i == '.':
+            sipher_text = sipher_text + i
+        else:
+            sipher_text = sipher_text + char_converter(i,shift)
+    print(sipher_text)
+
+def char_converter(string,shift):
+    print(string)
+    return 'i'
+
+string_iterator("my NAME, is Victor.", 3)
