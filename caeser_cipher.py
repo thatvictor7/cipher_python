@@ -28,8 +28,8 @@ cipher = {
 }
 
 # function to return key for any value
-def get_key_by_value(val):
-    for key, value in cipher.items():
+def get_key_by_value(val, obj):
+    for key, value in obj.items():
          if val == value:
              return key
  
@@ -48,7 +48,8 @@ def string_iterator(string,shift):
     print(sipher_text)
 
 def char_converter(string,shift):
-    print(string)
-    return 'i'
+    ciphered_key = int(get_key_by_value(string, cipher)) - shift
+    ciphered_key = ciphered_key + 26 if ciphered_key <= 0 else ciphered_key
+    return cipher.get(str(ciphered_key))
 
-string_iterator("my NAME, is Victor.", 3)
+string_iterator("my NAME, is Victor.", 7)
